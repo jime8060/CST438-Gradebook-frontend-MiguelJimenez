@@ -119,6 +119,7 @@ class Gradebook extends React.Component {
       this.setState({grades: newgrades});
     };
  
+ // changed courseTitle to courseId in line 137 so assignment would add to MySQL even though error toast msg appears
     render() {
        const columns = [
         { field: 'name', headerName: 'Name', width: 250 },
@@ -133,7 +134,7 @@ class Gradebook extends React.Component {
               <Grid container>
                 <Grid item align="left">
                    <h4>Assignment: {assignment.assignmentName}</h4>
-                   <h4>Course: {assignment.courseTitle}</h4>                   
+                   <h4>Course: {assignment.courseId}</h4>                   
                 </Grid>
               </Grid>
               <div style={{width:'100%'}}>
