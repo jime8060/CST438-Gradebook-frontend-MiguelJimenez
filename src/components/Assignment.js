@@ -49,6 +49,8 @@ class Assignment extends React.Component {
     this.setState({selected: event.target.value});
   }
   
+  // changed courseTitle to courseId in line 73 so assignment would add to MySQL even though error toast msg appears
+
   render() {
      const columns = [
       {
@@ -67,8 +69,8 @@ class Assignment extends React.Component {
           {params.value}
           </div>
         )
-      },
-      { field: 'courseTitle', headerName: 'Course', width: 300 },
+      }, 
+      { field: 'courseId', headerName: 'Course', width: 300 }, 
       { field: 'dueDate', headerName: 'Due Date', width: 200 }
       ];
       
@@ -83,9 +85,12 @@ class Assignment extends React.Component {
                     variant="outlined" color="primary" disabled={this.state.assignments.length===0}  style={{margin: 10}}>
               Grade
             </Button>
+            <Button component={Link} to="/add-assignment" variant="outlined" color="primary" style={{margin: 10}}>
+              Add assignments
+            </Button>
             <ToastContainer autoClose={1500} /> 
           </div>
-      )
+      );
   }
 }  
 
